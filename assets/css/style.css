@@ -1,4 +1,85 @@
+  
+ :root {
+    --primary-color: #36aeb4;
+    --secondary-color: #36aeb447;
+    --font-color: #fff;
+    --bg-color: #052727;
+    --hover-color: #031e1e;
+}
+
+[data-theme="dark"] {
+    --primary-color: #36aeb4;
+    --secondary-color: #b9c3cd94;
+    --font-color: #fff;
+    --bg-color: #495057;
+    --hover-color: #384049;
+}
+
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  
+  
+}
+em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+/**************************************************************************************/
 /* Typography */
+
 @font-face {
   font-family: arabFontRegular;
   src: url(../fonts/arabfonts/ArbFONTS-riyad-bank-Regular.ttf);
@@ -19,9 +100,13 @@ body {
 .sidebar {
   min-height:100vh;
   font-family: "ubuntu-regular", sans-serif;
-  background-color:#052727;
+  /* background-color:#052727; */
+  background-color:var(--bg-color);
+  ;
   background-position: center center;
-  color:#fff;
+  /* color:#fff; */
+  color: var(--font-color);
+
   padding: 0;
   width: 260px;
   z-index: 11;
@@ -83,7 +168,8 @@ body {
    display:none
 }
   .sidebar .nav .nav-item.active {
-  background: #031e1e; 
+  background:  var(--hover-color);  
+  color:#ddd
 }
   .sidebar .nav .nav-item.active > .nav-link .menu-title {
   color: #fff;
@@ -91,7 +177,7 @@ body {
   .sidebar .nav .nav-item.active > .nav-link i {
   color: #fff; }
   .sidebar .nav .nav-item:hover {
-  background: #031e1e; }
+  background: var(--hover-color); }
   .sidebar .nav .nav-item.nav-profile .nav-link {
   height: auto;
   line-height: 1;
@@ -138,7 +224,7 @@ body {
   .sidebar .nav.sub-menu .nav-item {
   padding: 0; }
   .sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #888;
+  color: var(--font-color);
   padding: 0.75rem 2rem 0.75rem 2rem;
   position: relative;
   font-size: 0.8125rem;
@@ -160,10 +246,11 @@ body {
   left: auto;
   right: 0; }
   .sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: #b66dff;
+  color: var(--primary-color);
   background: transparent; }
   .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-  color: #555555; }
+  color: #ddd
+ }
   .sidebar .nav.sub-menu .nav-item:hover {
   background: transparent; }
 
@@ -359,7 +446,7 @@ body {
   color: #052727;
 }
 .main-panel .content-wrapper .sales-order .header a{
-  background-color: #052727;
+  background-color: var(--hover-color);
   color: #fff;
   font-weight: 700;
 }
@@ -403,7 +490,7 @@ body {
     background-color: transparent
 }
 .main-panel .content-wrapper .sales-order .action-menu .menu button a{
-  background-color:#36aeb447;
+  background-color:var(--secondary-color);
   border:none;
   padding: 8px 10px;
 
@@ -430,7 +517,7 @@ body {
   color:#343a40
 }
 .main-panel .content-wrapper .sales-order .content button{
-  background-color: #052727;
+  background-color: var(--hover-color);
   padding: 0.5rem 1.5rem;
 }
 /** LOGIN **/
@@ -509,7 +596,10 @@ padding-bottom: 20px;
   color: #6c757d;
 }
 .login .login-content .card-body button{
-  background-image: url(../images/btn-back.png);
+  /* background-image: url(../images/btn-back.png);
+   */
+  background: var(--bg-color);
+  background: linear-gradient(90deg, var(--hover-color) 0%, var(--bg-color) 23%, var(--primary-color) 100%);
   background-position: center;
   border-radius: 15px;
 }
